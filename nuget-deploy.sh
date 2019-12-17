@@ -27,7 +27,7 @@ if [ -z "$GO_PIPELINE_COUNTER" ]; then
 fi
 
 if [ -z "$GO_STAGE_COUNTER" ]; then
-    export GO_STAGE_COUNTER=1
+    export GO_STAGE_COUNTER=0
 fi
 
 if [ -z "$NUGET_SUFFIX" ]; then
@@ -51,35 +51,18 @@ echo ===========================================================================
 echo Pushing NuGet package : $ARTIFACTDIR - VERSION $VERSION
 echo =============================================================================
 
+echo "using key $NUGET_API_KEY"
 
 docker run --rm \
            -v "$ARTIFACTDIR/:/build" \
            --workdir /build \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet nuget push PrometheusMetrics.Netstandard.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
+           microsoft/dotnet:2.1-sdk dotnet nuget push Http-client.Netstandard.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
 
 docker run --rm \
            -v "$ARTIFACTDIR/:/build" \
            --workdir /build \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet nuget push PrometheusMetrics.Netstandard.Autofac.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
-
-docker run --rm \
-           -v "$ARTIFACTDIR/:/build" \
-           --workdir /build \
-           --name app \
-           microsoft/dotnet:2.1-sdk dotnet nuget push PrometheusMetrics.Netstandard.Microsoft.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
-
-docker run --rm \
-           -v "$ARTIFACTDIR/:/build" \
-           --workdir /build \
-           --name app \
-           microsoft/dotnet:2.1-sdk dotnet nuget push PrometheusMetrics.Netstandard.Stores.Console.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
-
-docker run --rm \
-           -v "$ARTIFACTDIR/:/build" \
-           --workdir /build \
-           --name app \
-           microsoft/dotnet:2.1-sdk dotnet nuget push PrometheusMetrics.Netstandard.Stores.log4net.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
+           microsoft/dotnet:2.1-sdk dotnet nuget push Http-client.Autofac.Netstandard.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
 
 echo Done!

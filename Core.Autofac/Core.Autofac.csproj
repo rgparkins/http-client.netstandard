@@ -4,7 +4,8 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <AssemblyName>rgparkins.HttpClient.Netstandard.Core.Autofac</AssemblyName>
         <RootNamespace>rgparkins.HttpClient.Netstandard.Core.Autofac</RootNamespace>
-        <PackageId>HttpClient.Autofac.Netstandard</PackageId>
+        <PackageId>Http-client.Autofac.Netstandard</PackageId>
+        <PackageProjectUrl>https://github.com/rgparkins/http-client.netstandard</PackageProjectUrl>
     </PropertyGroup>
 
     <ItemGroup>

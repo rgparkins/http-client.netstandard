@@ -28,7 +28,7 @@ if [ -z "$GO_PIPELINE_COUNTER" ]; then
 fi
 
 if [ -z "$GO_STAGE_COUNTER" ]; then
-    export GO_STAGE_COUNTER=1
+    export GO_STAGE_COUNTER=0
 fi
 
 if [ -z "$NUGET_SUFFIX" ]; then
@@ -59,34 +59,13 @@ docker run --rm \
            -v "$NUGETDIR/:/packages" \
            --workdir /build/ \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./Core/src/Core.csproj
+           microsoft/dotnet:2.1-sdk dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./Core/Core.csproj
 
 docker run --rm \
            -v "$SRCDIR/:/build" \
            -v "$NUGETDIR/:/packages" \
            --workdir /build/ \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./DependencyInjection.Autofac/src/DependencyInjection.Autofac.csproj
-
-docker run --rm \
-           -v "$SRCDIR/:/build" \
-           -v "$NUGETDIR/:/packages" \
-           --workdir /build/ \
-           --name app \
-           microsoft/dotnet:2.1-sdk dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./DependencyInjection.Microsoft/src/DependencyInjection.Microsoft.csproj
-
-docker run --rm \
-           -v "$SRCDIR/:/build" \
-           -v "$NUGETDIR/:/packages" \
-           --workdir /build/ \
-           --name app \
-           microsoft/dotnet:2.1-sdk dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./Core.Stores.Console/Core.Stores.Console.csproj
-
-docker run --rm \
-           -v "$SRCDIR/:/build" \
-           -v "$NUGETDIR/:/packages" \
-           --workdir /build/ \
-           --name app \
-           microsoft/dotnet:2.1-sdk dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./Core.Stores.log4net/Core.Stores.log4net.csproj
-
+           microsoft/dotnet:2.1-sdk dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./Core.Autofac/Core.Autofac.csproj
+           
 echo Built!
