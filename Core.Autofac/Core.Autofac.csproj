@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>rgparkins.HttpClient.Netstandard.Core.Autofac</AssemblyName>
+        <RootNamespace>rgparkins.HttpClient.Netstandard.Core.Autofac</RootNamespace>
+        <PackageId>HttpClient.Autofac.Netstandard</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="4.9.2" />
+      <PackageReference Include="PrometheusMetrics.Netstandard" Version="1.0.1" />
+      <PackageReference Include="PrometheusMetrics.Netstandard.Autofac" Version="1.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core\Core.csproj" />
+    </ItemGroup>
+
+</Project>

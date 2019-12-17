@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>rgparkins.HttpClient.Netstandard.Core</AssemblyName>
+        <RootNamespace>rgparkins.HttpClient.Netstandard.Core</RootNamespace>
+        <PackageId>HttpClient.Netstandard</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="PrometheusMetrics.Netstandard" Version="1.0.1" />
+    </ItemGroup>
+
+</Project>
