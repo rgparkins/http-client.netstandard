@@ -28,7 +28,7 @@ if [ -z "$GO_PIPELINE_COUNTER" ]; then
 fi
 
 if [ -z "$GO_STAGE_COUNTER" ]; then
-    export GO_STAGE_COUNTER=0
+    export GO_STAGE_COUNTER=1
 fi
 
 if [ -z "$NUGET_SUFFIX" ]; then
