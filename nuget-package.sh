@@ -59,13 +59,13 @@ docker run --rm \
            -v "$NUGETDIR/:/packages" \
            --workdir /build/ \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./Core/Core.csproj
+           mcr.microsoft.com/dotnet/sdk:5.0 dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./Core/Core.csproj
 
 docker run --rm \
            -v "$SRCDIR/:/build" \
            -v "$NUGETDIR/:/packages" \
            --workdir /build/ \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./Core.Autofac/Core.Autofac.csproj
+           mcr.microsoft.com/dotnet/sdk:5.0 dotnet pack -p:PackageVersion=$VERSION -c Release -o /packages ./Core.Autofac/Core.Autofac.csproj
            
 echo Built!

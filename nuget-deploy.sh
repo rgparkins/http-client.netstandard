@@ -57,12 +57,12 @@ docker run --rm \
            -v "$ARTIFACTDIR/:/build" \
            --workdir /build \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet nuget push Http-client.Netstandard.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
+           mcr.microsoft.com/dotnet/sdk:5.0 dotnet nuget push Http-client.Netstandard.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
 
 docker run --rm \
            -v "$ARTIFACTDIR/:/build" \
            --workdir /build \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet nuget push Http-client.Autofac.Netstandard.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
+           mcr.microsoft.com/dotnet/sdk:5.0 dotnet nuget push Http-client.Autofac.Netstandard.$VERSION.nupkg -k $NUGET_API_KEY --source $NUGET_SERVER
 
 echo Done!

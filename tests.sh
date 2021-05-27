@@ -35,10 +35,10 @@ docker run --rm \
            -v "$SRCDIR/:/build/" \
            --workdir /build/Core.Tests \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet test
+           mcr.microsoft.com/dotnet/sdk:5.0 dotnet test
 
 docker run --rm \
            -v "$SRCDIR/:/build/" \
            --workdir /build/Core.Autofac.Tests \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet test
+           mcr.microsoft.com/dotnet/sdk:5.0 dotnet test

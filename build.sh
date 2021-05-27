@@ -34,4 +34,4 @@ docker run --rm \
            -v "$SRCDIR/:/build" \
            --workdir /build \
            --name app \
-           microsoft/dotnet:2.1-sdk dotnet build
+           mcr.microsoft.com/dotnet/sdk:5.0 dotnet build
