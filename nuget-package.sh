@@ -36,7 +36,7 @@ if [ -z "$NUGET_SUFFIX" ]; then
 fi
 
 if [ -z "$NUGET_MAJOR_VERSION" ]; then
-    export NUGET_MAJOR_VERSION=1
+    export NUGET_MAJOR_VERSION=2
 fi
 
 echo
