@@ -21,7 +21,6 @@ jobs:
       deploy:
         steps:
           - task: ShellScript@2
-            environment: dev
             inputs:
               scriptPath: ./build.sh
 
