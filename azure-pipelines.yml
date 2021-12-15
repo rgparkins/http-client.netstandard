@@ -18,13 +18,13 @@ jobs:
   timeoutInMinutes: 120
   strategy:
     runOnce:
-    deploy:
+      deploy:
         steps:
-        - task: ShellScript@2
-          environment: dev
-          inputs:
-            scriptPath: ./build.sh
+          - task: ShellScript@2
+            environment: dev
+            inputs:
+              scriptPath: ./build.sh
 
-        - task: ShellScript@2
-          inputs:
-            scriptPath: ./tests.sh
+          - task: ShellScript@2
+            inputs:
+              scriptPath: ./tests.sh
