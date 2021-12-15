@@ -11,11 +11,20 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-steps:
-- task: ShellScript@2
-  inputs:
-    scriptPath: ./build.sh
+jobs:
+- deployment: start
+  continueOnError: false
+  environment: 'dev'
+  timeoutInMinutes: 120
+  strategy:
+    runOnce:
+    deploy:
+        steps:
+        - task: ShellScript@2
+          environment: dev
+          inputs:
+            scriptPath: ./build.sh
 
-- task: ShellScript@2
-  inputs:
-    scriptPath: ./tests.sh
+        - task: ShellScript@2
+          inputs:
+            scriptPath: ./tests.sh
