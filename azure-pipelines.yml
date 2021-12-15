@@ -29,7 +29,7 @@ steps:
   inputs:
     scriptPath: ./tests.sh
 
-  - task: VSTest@2
+- task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
