@@ -26,18 +26,18 @@ jobs:
         uses: dorny/test-reporter@v1
         with:
           name: Test Results
-          path: Core.Tests/Core.Tests/test-results.trx
+          path: Core.Tests/test-results.trx
           reporter: dotnet-trx
       - name: Restore Dependencies for autofac tests
         run: dotnet restore Core.Autofac.Tests/Core.Autofac.Tests.csproj
       - name: Build
         run: dotnet build Core.Autofac.Tests/Core.Autofac.Tests.csproj --configuration Release --no-restore
-      - name: Run Core Tests
+      - name: Run Autofac Tests
         run: dotnet test Core.Autofac.Tests/Core.Autofac.Tests.csproj --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
       - name: Publish Autofac Test Results
         if: always()
         uses: dorny/test-reporter@v1
         with:
           name: Test Results
-          path: Core.Autofac.Tests/Core.Autofac.Tests/test-results.trx
+          path: Core.Autofac.Tests/test-results.trx
           reporter: dotnet-trx
