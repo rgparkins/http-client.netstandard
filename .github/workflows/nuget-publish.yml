@@ -39,7 +39,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.x' # Adjust to your target framework
+          dotnet-version: '9.0.x' 
       - name: Restore Dependencies
         run: dotnet restore Core/Core.csproj
       - name: Build
