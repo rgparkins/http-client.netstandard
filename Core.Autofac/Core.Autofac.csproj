@@ -9,9 +9,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Autofac" Version="4.9.2" />
-      <PackageReference Include="PrometheusMetrics.Netstandard" Version="1.0.1" />
-      <PackageReference Include="PrometheusMetrics.Netstandard.Autofac" Version="1.0.1" />
+      <PackageReference Include="Autofac" Version="6.2.0" />
+      <PackageReference Include="PrometheusMetrics.Netstandard" Version="2.0.3" />
+      <PackageReference Include="PrometheusMetrics.Netstandard.Autofac" Version="2.0.3" />
     </ItemGroup>
 
     <ItemGroup>
