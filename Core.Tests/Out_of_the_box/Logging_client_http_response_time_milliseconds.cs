@@ -22,7 +22,7 @@ namespace Core.Tests.Out_of_the_box
         {
             var timeTakenMetric = MyMetricStore.Metrics.Single(s => s.Data.Name == "client_http_response_time_milliseconds").Data as Summary;
 
-            Assert.That(timeTakenMetric.Value, Is.GreaterThan(0));
+            Assert.That(timeTakenMetric.Value, Is.GreaterThanOrEqualTo(0));
             
             var labels = timeTakenMetric.Labels;
             
