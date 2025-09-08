@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: dotnet build Core.Tests/Core.Tests.csproj --configuration Release --no-restore
       - name: Run Core Tests
-        run: dotnet test Core.Tests/Core.Tests.csproj --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test Core.Tests/Core.Tests.csproj --configuration Release --no-build --logger "trx;LogFileName=Core.Tests/test-results.trx"
       - name: Publish Test Results
         if: always()
         uses: dorny/test-reporter@v1
@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: dotnet build Core.Autofac.Tests/Core.Autofac.Tests.csproj --configuration Release --no-restore
       - name: Run Autofac Tests
-        run: dotnet test Core.Autofac.Tests/Core.Autofac.Tests.csproj --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test Core.Autofac.Tests/Core.Autofac.Tests.csproj --configuration Release --no-build --logger "trx;LogFileName=Core.Autofac.Tests/test-results.trx"
       - name: Publish Autofac Test Results
         if: always()
         uses: dorny/test-reporter@v1
