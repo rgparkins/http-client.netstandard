@@ -19,11 +19,11 @@ jobs:
         with:
           fetch-depth: 0 # Required for MinVer to read Git history
       - name: Install MinVer CLI
-        run: dotnet tool install --global MinVer
+        run: dotnet tool install --tool-path ./minver minver-cli  # dotnet tool install --tool-path ./minver minver-cli --version 4.3.0
       - name: Calculate Version
         id: minver
         run: |
-          VERSION=$(minver --auto-increment minor --tag-prefix v)
+          VERSION=$(./minver/minver --auto-increment minor --tag-prefix v)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
       - name: Create Git Tag
         if: startsWith(github.ref, 'refs/tags/') == false
